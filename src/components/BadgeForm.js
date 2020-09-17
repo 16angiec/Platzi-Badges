@@ -1,15 +1,9 @@
-import React from "react";
+import React from 'react';
 
 class BadgeForm extends React.Component {
-  handleClick = (e) => {
-    console.log("Hola");
+  handleClick = e => {
+    console.log('Button was clicked');
   };
-
-/*   handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Form was submitted");
-    console.log(this.state);
-  }; */
 
   render() {
     return (
@@ -72,13 +66,13 @@ class BadgeForm extends React.Component {
             />
           </div>
 
-          <button
-            type="submit"
-            onClick={this.handleClick}
-            className="btn btn-primary"
-          >
+          <button onClick={this.handleClick} className="btn btn-primary">
             Save
           </button>
+
+          {this.props.error && (
+            <p className="text-danger">{this.props.error.message}</p>
+          )}
         </form>
       </div>
     );
